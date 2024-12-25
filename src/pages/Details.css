@@ -10,43 +10,54 @@
   padding: 40px 20px;
 }
 
+.details-article {
+  background: var(--card-background);
+  border-radius: 12px;
+  box-shadow: 0 2px 10px var(--shadow-color);
+  overflow: hidden;
+}
+
 .details-header {
-  margin-bottom: 30px;
+  padding: 20px;
 }
 
 .details-title {
   font-size: 2.5rem;
-  color: #2c3e50;
+  color: var(--text-color);
   margin-bottom: 15px;
+  line-height: 1.2;
 }
 
 .details-meta {
   display: flex;
   align-items: center;
   gap: 20px;
-  color: #666;
+  color: var(--text-color-secondary);
   font-size: 1rem;
+  flex-wrap: wrap;
 }
 
 .details-image {
   width: 100%;
   height: 500px;
   object-fit: cover;
-  border-radius: 12px;
-  margin-bottom: 30px;
 }
 
 .details-content {
+  padding: 30px 20px;
   font-size: 1.1rem;
   line-height: 1.8;
-  color: #444;
-  margin-bottom: 40px;
+  color: var(--text-color);
 }
 
 /* Mobil görünüm için medya sorguları */
 @media screen and (max-width: 768px) {
   .details-container {
-    padding: 20px 15px;
+    padding: 20px 10px;
+  }
+
+  .details-header {
+    padding: 15px;
   }
 
   .details-title {
@@ -55,25 +66,40 @@
   }
 
   .details-meta {
-    flex-wrap: wrap;
     gap: 10px;
     font-size: 0.9rem;
   }
 
   .details-image {
     height: 300px;
-    margin-bottom: 20px;
   }
 
   .details-content {
+    padding: 20px 15px;
     font-size: 1rem;
     line-height: 1.6;
+  }
+
+  /* Sosyal etkileşim butonlarını mobilde düzenle */
+  .social-interactions {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .interaction-item {
+    width: 100%;
+    justify-content: center;
+    margin: 5px 0;
   }
 }
 
 @media screen and (max-width: 480px) {
   .details-container {
-    padding: 15px 10px;
+    padding: 10px 5px;
+  }
+
+  .details-header {
+    padding: 10px;
   }
 
   .details-title {
@@ -82,21 +108,28 @@
 
   .details-image {
     height: 250px;
-    border-radius: 8px;
   }
 
   .details-meta {
     font-size: 0.85rem;
   }
 
-  /* Sosyal etkileşim butonlarını mobilde düzenle */
-  .social-interactions {
-    flex-direction: column;
-    gap: 10px;
+  .details-content {
+    padding: 15px 10px;
+    font-size: 0.95rem;
   }
 
-  .interaction-item {
-    width: 100%;
-    justify-content: center;
+  /* Yorum bölümünü mobilde düzenle */
+  .comments-section {
+    padding: 15px 10px;
+  }
+
+  .comment {
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .comment-form textarea {
+    min-height: 80px;
   }
 } 
