@@ -1,0 +1,354 @@
+.home {
+  padding: 40px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.home h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2c3e50;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.haber-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding: 20px;
+  flex: 1;
+  min-height: calc(100vh - 300px);
+  align-content: flex-start;
+}
+
+.haber-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.haber-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  z-index: 2;
+}
+
+.haber-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.haber-card:hover img {
+  transform: scale(1.05);
+}
+
+.haber-content {
+  padding: 25px;
+}
+
+.haber-content h2 {
+  margin: 0 0 15px 0;
+  font-size: 1.5rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.haber-content p {
+  margin: 0 0 20px 0;
+  color: #666;
+  line-height: 1.6;
+}
+
+.tarih {
+  display: inline-block;
+  color: #3498db;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background: rgba(52, 152, 219, 0.1);
+  padding: 5px 12px;
+  border-radius: 15px;
+}
+
+@media screen and (max-width: 768px) {
+  .home {
+    padding: 20px 10px;
+  }
+
+  .home h1 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .haber-container {
+    grid-template-columns: 1fr;
+    min-height: calc(100vh - 250px);
+  }
+
+  .haber-card {
+    max-width: 100%;
+  }
+
+  .haber-content {
+    padding: 15px;
+  }
+
+  .haber-content h2 {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .haber-container {
+    grid-template-columns: repeat(2, 1fr);
+    min-height: calc(100vh - 250px);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .haber-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.haber-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.filter-container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  align-items: center;
+  width: 100%;
+  height: 85px;
+  flex-wrap: nowrap;
+}
+
+.filter-item {
+  flex: 1;
+  min-width: 200px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+}
+
+/* Başlık arama alanı için */
+.filter-item:first-child {
+  flex: 2;
+  min-width: 300px;
+}
+
+.filter-item input,
+.filter-item select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e1e8ed;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #2c3e50;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.filter-item input:focus,
+.filter-item select:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+.filter-item input::placeholder {
+  color: #95a5a6;
+}
+
+.filter-item select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 1em;
+}
+
+@media screen and (max-width: 768px) {
+  .filter-container {
+    height: auto;
+    padding: 20px;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .filter-item {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .clear-filters-btn {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .filter-container {
+    height: auto;
+    padding: 20px;
+    flex-wrap: wrap;
+  }
+
+  .filter-item {
+    margin-bottom: 15px;
+  }
+}
+
+.no-results {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 1.2rem;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  margin: 100px auto;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.no-results i {
+  font-size: 3rem;
+  color: #95a5a6;
+  margin-bottom: 10px;
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+  .filter-container {
+    min-width: 600px;
+  }
+}
+
+.filter-wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+  padding: 0 20px;
+}
+
+.filter-wrapper::-webkit-scrollbar {
+  height: 0;
+  width: 0;
+}
+
+.clear-filters-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 8px;
+  background: #e74c3c;
+  color: white;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-left: auto;
+  height: 45px;
+  white-space: nowrap;
+}
+
+.clear-filters-btn:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+}
+
+.clear-filters-btn i {
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .clear-filters-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 30px;
+  padding: 20px;
+}
+
+.pagination-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background: white;
+  color: #2c3e50;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.pagination-btn:hover:not(:disabled) {
+  background: #3498db;
+  color: white;
+  transform: translateY(-2px);
+}
+
+.pagination-btn.active {
+  background: #3498db;
+  color: white;
+}
+
+.pagination-btn:disabled {
+  background: #f5f6fa;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.pagination-btn i {
+  font-size: 0.8rem;
+}
+
+@media screen and (max-width: 768px) {
+  .pagination {
+    gap: 5px;
+  }
+
+  .pagination-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 0.9rem;
+  }
+} 
