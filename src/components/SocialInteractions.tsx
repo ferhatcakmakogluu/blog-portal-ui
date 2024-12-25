@@ -14,13 +14,14 @@ const SocialInteractions: React.FC<SocialInteractionsProps> = ({ itemId, type })
   const [hasLiked, setHasLiked] = useState(false);
   const [hasDisliked, setHasDisliked] = useState(false);
   const user = localStorage.getItem('user');
+  const storageKey = `interactions-${type}-${itemId}`;
 
   useEffect(() => {
     // Görüntülenme sayısını artır
     setViews(prev => prev + 1);
     
     // Kullanıcının önceki etkileşimlerini kontrol et
-    const interactions = JSON.parse(localStorage.getItem(`interactions-${itemId}`) || '{}');
+    const interactions = JSON.parse(localStorage.getItem(storageKey) || '{}');
     setHasLiked(interactions.liked || false);
     setHasDisliked(interactions.disliked || false);
   }, [itemId]);
@@ -43,7 +44,7 @@ const SocialInteractions: React.FC<SocialInteractionsProps> = ({ itemId, type })
       setHasLiked(false);
     }
 
-    localStorage.setItem(`interactions-${itemId}`, JSON.stringify({
+    localStorage.setItem(storageKey, JSON.stringify({
       liked: !hasLiked,
       disliked: false
     }));
@@ -67,7 +68,7 @@ const SocialInteractions: React.FC<SocialInteractionsProps> = ({ itemId, type })
       setHasDisliked(false);
     }
 
-    localStorage.setItem(`interactions-${itemId}`, JSON.stringify({
+    localStorage.setItem(storageKey, JSON.stringify({
       liked: false,
       disliked: !hasDisliked
     }));

@@ -18,7 +18,8 @@ const Comments: React.FC<CommentsProps> = ({ itemId, type }) => {
   const [newComment, setNewComment] = useState('');
   const user = localStorage.getItem('user');
   
-  const currentComments = commentsMap[itemId] || [];
+  const storageKey = `comments-${type}-${itemId}`;
+  const currentComments = commentsMap[storageKey] || [];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -39,7 +40,7 @@ const Comments: React.FC<CommentsProps> = ({ itemId, type }) => {
 
     setCommentsMap(prev => ({
       ...prev,
-      [itemId]: [...(prev[itemId] || []), comment]
+      [storageKey]: [...(prev[storageKey] || []), comment]
     }));
     setNewComment('');
   };
