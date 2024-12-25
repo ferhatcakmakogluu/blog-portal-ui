@@ -11,6 +11,13 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --background-color: #ffffff;
+  --text-color: #2c3e50;
+  --text-color-secondary: #666;
+  --card-background: #ffffff;
+  --border-color: #e1e8ed;
+  --shadow-color: rgba(0, 0, 0, 0.1);
 }
 
 a {
@@ -64,5 +71,57 @@ button:focus-visible {
   }
   button {
     background-color: #f9f9f9;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --text-color-secondary: #a0a0a0;
+    --card-background: #2c2c2c;
+    --border-color: #404040;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+  }
+
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+
+  .card, 
+  .details-container,
+  .gallery-detail,
+  .comments-section {
+    background-color: var(--card-background);
+    border-color: var(--border-color);
+  }
+
+  input, 
+  textarea {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    border-color: var(--border-color);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--text-color);
+  }
+
+  p, span {
+    color: var(--text-color-secondary);
+  }
+
+  a {
+    color: #3498db;
+  }
+
+  a:hover {
+    color: #2980b9;
+  }
+
+  /* Koyu modda görüntülerin parlaklığını azalt */
+  img {
+    filter: brightness(0.9);
   }
 }

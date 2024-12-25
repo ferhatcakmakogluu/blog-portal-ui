@@ -9,15 +9,16 @@ interface Comment {
 }
 
 interface CommentsProps {
-  contentId: string;
+  itemId: number;
+  type: string;
 }
 
-const Comments: React.FC<CommentsProps> = ({ contentId }) => {
+const Comments: React.FC<CommentsProps> = ({ itemId, type }) => {
   const [commentsMap, setCommentsMap] = useState<Record<string, Comment[]>>({});
   const [newComment, setNewComment] = useState('');
   const user = localStorage.getItem('user');
   
-  const currentComments = commentsMap[contentId] || [];
+  const currentComments = commentsMap[itemId] || [];
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -38,7 +39,7 @@ const Comments: React.FC<CommentsProps> = ({ contentId }) => {
 
     setCommentsMap(prev => ({
       ...prev,
-      [contentId]: [...(prev[contentId] || []), comment]
+      [itemId]: [...(prev[itemId] || []), comment]
     }));
     setNewComment('');
   };

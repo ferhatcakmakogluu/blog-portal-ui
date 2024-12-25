@@ -45,7 +45,10 @@ const GalleryDetail: React.FC = () => {
             </button>
           </div>
 
-          <SocialInteractions contentId={`gallery-${id}-photo-${activeIndex}`} />
+          <SocialInteractions 
+            itemId={Number(id)} 
+            type="gallery"
+          />
 
           <div className="thumbnail-strip">
             {galeri.fotograflar.map((foto, index) => (
@@ -61,7 +64,10 @@ const GalleryDetail: React.FC = () => {
         </div>
 
         <div className="gallery-comments">
-          <Comments contentId={`gallery-${id}-photo-${activeIndex}`} />
+          <Comments 
+            itemId={Number(id)} 
+            type="gallery"
+          />
         </div>
       </div>
 

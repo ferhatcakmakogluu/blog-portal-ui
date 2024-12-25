@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useAlert } from '../context/AlertContext';
 
 interface SocialInteractionsProps {
-  contentId: string;
+  itemId: number;
+  type: string;
 }
 
-const SocialInteractions: React.FC<SocialInteractionsProps> = ({ contentId }) => {
+const SocialInteractions: React.FC<SocialInteractionsProps> = ({ itemId, type }) => {
   const { showAlert } = useAlert();
   const [likes, setLikes] = useState(0);
   const [dislikes, setDislikes] = useState(0);
@@ -19,10 +20,10 @@ const SocialInteractions: React.FC<SocialInteractionsProps> = ({ contentId }) =>
     setViews(prev => prev + 1);
     
     // Kullanıcının önceki etkileşimlerini kontrol et
-    const interactions = JSON.parse(localStorage.getItem(`interactions-${contentId}`) || '{}');
+    const interactions = JSON.parse(localStorage.getItem(`interactions-${itemId}`) || '{}');
     setHasLiked(interactions.liked || false);
     setHasDisliked(interactions.disliked || false);
-  }, [contentId]);
+  }, [itemId]);
 
   const handleLike = () => {
     if (!user) {
@@ -42,7 +43,7 @@ const SocialInteractions: React.FC<SocialInteractionsProps> = ({ contentId }) =>
       setHasLiked(false);
     }
 
-    localStorage.setItem(`interactions-${contentId}`, JSON.stringify({
+    localStorage.setItem(`interactions-${itemId}`, JSON.stringify({
       liked: !hasLiked,
       disliked: false
     }));
@@ -66,7 +67,7 @@ const SocialInteractions: React.FC<SocialInteractionsProps> = ({ contentId }) =>
       setHasDisliked(false);
     }
 
-    localStorage.setItem(`interactions-${contentId}`, JSON.stringify({
+    localStorage.setItem(`interactions-${itemId}`, JSON.stringify({
       liked: false,
       disliked: !hasDisliked
     }));
