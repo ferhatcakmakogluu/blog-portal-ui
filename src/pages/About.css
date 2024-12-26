@@ -1,5 +1,6 @@
 .about-page {
   min-height: 100vh;
+  background-color: #f8f9fa;
 }
 
 .about-hero {
@@ -13,6 +14,7 @@
   text-align: center;
   padding: 20px;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin-bottom: 50px;
 }
 
 .hero-background {
@@ -25,19 +27,32 @@
   background: 
     radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 20%),
     radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 20%);
-  z-index: -2;
+  z-index: 1;
 }
 
-.hero-animation {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+.hero-content {
+  position: relative;
+  z-index: 2;
 }
 
-/* Baloncuk animasyonları için */
+.hero-title {
+  font-size: 4.2rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeInDown 1s ease;
+}
+
+.hero-subtitle {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 1s ease 0.3s forwards;
+}
+
+/* Baloncuk animasyonları */
 @keyframes float {
   0% { 
     transform: translateY(120vh) scale(0);
@@ -61,63 +76,7 @@
   pointer-events: none;
   backdrop-filter: blur(2px);
   animation: float 8s linear infinite;
-}
-
-.hero-content {
-  position: relative;
   z-index: 1;
-}
-
-.hero-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 4.2rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 20px;
-  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
-  animation: fadeInDown 1s ease;
-  letter-spacing: -1px;
-}
-
-.hero-subtitle {
-  font-family: 'Poppins', sans-serif;
-  font-size: 1.8rem;
-  font-weight: 300;
-  color: #E0E7FF;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  animation: fadeInUp 1s ease 0.3s forwards;
-  letter-spacing: 1px;
-}
-
-@keyframes gradientBG {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-@keyframes glow {
-  from {
-    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #0072ff;
-  }
-  to {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #0072ff;
-  }
-}
-
-/* Dalgalı animasyon */
-.wave {
-  display: none;
-}
-
-.about-hero p {
-  font-size: 1.5rem;
-  animation: fadeInUp 1s ease;
 }
 
 .about-content {
@@ -126,7 +85,19 @@
   padding: 50px 20px;
 }
 
+/* Genel section stilleri */
 section {
+  margin-bottom: 100px;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Her bir özel section için stiller */
+.mission-section,
+.vision-section,
+.goals-section,
+.team-section {
   margin-bottom: 100px;
   display: flex;
   gap: 50px;
@@ -147,28 +118,24 @@ section {
   transition: transform 0.3s ease;
 }
 
-.section-image:hover img {
-  transform: scale(1.05);
-}
-
 .section-text {
   flex: 1;
 }
 
-.section-text h2 {
+/* Values Section Stilleri */
+.values-section {
+  margin-bottom: 100px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.values-section h2 {
   font-size: 2.5rem;
   color: #2c3e50;
-  margin-bottom: 20px;
-}
-
-.section-text p {
-  font-size: 1.1rem;
-  line-height: 1.8;
-  color: #666;
-}
-
-.values-section {
-  flex-direction: column;
+  margin-bottom: 50px;
+  width: 100%;
   text-align: center;
 }
 
@@ -176,19 +143,17 @@ section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 40px;
-  margin-top: 50px;
+  width: 100%;
   max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .value-card {
-  background: white;
+  background: #ffffff;
   padding: 40px;
   border-radius: 15px;
   box-shadow: 0 5px 20px rgba(0,0,0,0.05);
   transition: transform 0.3s ease;
-  min-height: 250px;
+  border: 1px solid #eee;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -196,63 +161,49 @@ section {
 }
 
 .value-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
 }
 
 .value-card i {
   font-size: 3rem;
-  color: #3498db;
-  margin-bottom: 25px;
+  color: #667eea;
+  margin-bottom: 20px;
+  display: block;
 }
 
 .value-card h3 {
   font-size: 1.8rem;
   color: #2c3e50;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .value-card p {
-  color: #666;
-  line-height: 1.6;
   font-size: 1.1rem;
+  color: #34495e;
+  line-height: 1.6;
 }
 
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Mobil görünüm için medya sorguları */
 @media screen and (max-width: 768px) {
   .about-hero {
-    height: 300px;
+    height: 400px;
+    padding: 20px;
   }
 
-  .about-hero h1 {
-    font-size: 2rem;
+  .hero-title {
+    font-size: 2.5rem;
   }
 
-  .about-hero p {
+  .hero-subtitle {
     font-size: 1.2rem;
   }
 
-  section {
+  section,
+  .mission-section,
+  .vision-section,
+  .goals-section,
+  .team-section {
     flex-direction: column;
     gap: 30px;
     margin-bottom: 60px;
@@ -260,10 +211,6 @@ section {
 
   .section-image img {
     height: 300px;
-  }
-
-  .section-text h2 {
-    font-size: 2rem;
   }
 
   .values-grid {
@@ -274,18 +221,32 @@ section {
 
   .value-card {
     padding: 30px;
-    min-height: 200px;
   }
 
-  .value-card i {
-    font-size: 2.5rem;
+  .values-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
   }
+}
 
-  .value-card h3 {
-    font-size: 1.5rem;
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
   }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-  .value-card p {
-    font-size: 1rem;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

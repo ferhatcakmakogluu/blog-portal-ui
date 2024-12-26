@@ -2,8 +2,6 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  background: #ffd700;
-  color: #2c3e50;
   padding: 15px 30px;
   border-radius: 8px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.15);
@@ -17,9 +15,27 @@
   min-width: 280px;
 }
 
+/* Success alert için yeşil renk */
+.alert.success {
+  background: #2ecc71;
+  color: white;
+  border-color: #27ae60;
+}
+
+/* Warning alert için sarı renk */
+.alert.warning {
+  background: #ffd700;
+  color: #2c3e50;
+  border-color: #f1c40f;
+}
+
 .alert::before {
-  content: "⚠️";
+  content: "✓";  /* Success için tik işareti */
   font-size: 1.2em;
+}
+
+.alert.warning::before {
+  content: "⚠️";  /* Warning için ünlem işareti */
 }
 
 @keyframes slideIn {
