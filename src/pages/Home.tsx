@@ -7,24 +7,21 @@ const ITEMS_PER_PAGE = 15;
 
 const Home: React.FC = () => {
   const [searchTitle, setSearchTitle] = useState('');
-  const [searchDate, setSearchDate] = useState('');
   const [searchTopic, setSearchTopic] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
 
   const handleClearFilters = () => {
     setSearchTitle('');
-    setSearchDate('');
     setSearchTopic('');
     setCurrentPage(1);
   };
 
-  const hasActiveFilters = searchTitle || searchDate || searchTopic;
+  const hasActiveFilters = searchTitle || searchTopic;
 
   const filteredHaberler = haberler.filter(haber => {
     const matchTitle = haber.baslik.toLowerCase().includes(searchTitle.toLowerCase());
-    const matchDate = searchDate ? haber.tarih.includes(searchDate) : true;
     const matchTopic = searchTopic ? haber.konu === searchTopic : true;
-    return matchTitle && matchDate && matchTopic;
+    return matchTitle && matchTopic;
   });
 
   // Sayfalama hesaplamaları
@@ -49,15 +46,6 @@ const Home: React.FC = () => {
             placeholder="Haber başlığı ara..."
             value={searchTitle}
             onChange={(e) => setSearchTitle(e.target.value)}
-          />
-        </div>
-        
-        <div className="filter-item">
-          <input
-            type="date"
-            value={searchDate}
-            onChange={(e) => setSearchDate(e.target.value)}
-            placeholder="Tarih seçin"
           />
         </div>
         

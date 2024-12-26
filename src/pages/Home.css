@@ -407,54 +407,17 @@
   }
 }
 
-.filter-item input[type="date"] {
-  position: relative;
-  background: white;
-}
-
-.filter-item input[type="date"]::-webkit-calendar-picker-indicator {
-  background: transparent;
-  bottom: 0;
-  color: transparent;
-  cursor: pointer;
-  height: 100%;
-  left: auto;
-  position: absolute;
-  right: 10px;
-  top: 0;
-  width: 2.5em;
-}
-
-.filter-item input[type="date"]::-webkit-datetime-edit {
-  color: #2c3e50;
-}
-
-.filter-item input[type="date"]:not(:valid)::-webkit-datetime-edit {
-  color: transparent;
-}
-
+.filter-item input[type="date"],
+.filter-item input[type="date"]::-webkit-calendar-picker-indicator,
+.filter-item input[type="date"]::-webkit-datetime-edit,
+.filter-item input[type="date"]:not(:valid)::-webkit-datetime-edit,
 .filter-item input[type="date"]:not(:valid)::before {
-  content: attr(placeholder);
-  color: #95a5a6;
-  position: absolute;
-  left: 15px;
-  top: 50%;
-  transform: translateY(-50%);
+  display: none;
 }
 
 @media screen and (max-width: 768px) {
-  .filter-item input[type="date"] {
-    min-height: 45px;
-  }
-  
+  .filter-item input[type="date"],
   .filter-item input[type="date"]::-webkit-calendar-picker-indicator {
-    width: 2em;
-    height: 100%;
-    opacity: 1;
-    right: 5px;
-    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232c3e50' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3crect x='3' y='4' width='18' height='18' rx='2' ry='2'%3e%3c/rect%3e%3cline x1='16' y1='2' x2='16' y2='6'%3e%3c/line%3e%3cline x1='8' y1='2' x2='8' y2='6'%3e%3c/line%3e%3cline x1='3' y1='10' x2='21' y2='10'%3e%3c/line%3e%3c/svg%3e");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 1.2em;
+    display: none;
   }
 } 
