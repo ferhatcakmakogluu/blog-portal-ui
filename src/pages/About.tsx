@@ -5,6 +5,7 @@ import 'aos/dist/aos.css';
 
 const About: React.FC = () => {
   useEffect(() => {
+    AOS.init();
     const createBubble = () => {
       const hero = document.querySelector('.about-hero');
       if (!hero) return;
@@ -72,7 +73,7 @@ const About: React.FC = () => {
               Dijital yayıncılık alanında öncü bir platform olarak, doğa ve haber içeriklerini 
               en yüksek kalitede sunan, güvenilir ve yenilikçi bir kaynak olmayı hedefliyoruz. 
               Topluluk odaklı yaklaşımımızla, okuyucularımızın da aktif katılımcılar olduğu 
-              interaktif bir platform olu��turmayı amaçlıyoruz.
+              interaktif bir platform oluşturmayı amaçlıyoruz.
             </p>
           </div>
           <div className="section-image">

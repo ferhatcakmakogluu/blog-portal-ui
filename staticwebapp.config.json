@@ -21,6 +21,16 @@
     "cache-control": "must-revalidate, max-age=0"
   },
   "mimeTypes": {
-    ".json": "text/json"
+    ".js": "text/javascript",
+    ".mjs": "text/javascript",
+    ".json": "application/json",
+    ".css": "text/css",
+    ".html": "text/html",
+    ".svg": "image/svg+xml",
+    ".png": "image/png",
+    ".jpg": "image/jpeg",
+    ".gif": "image/gif",
+    ".woff": "font/woff",
+    ".woff2": "font/woff2"
   }
 } 
