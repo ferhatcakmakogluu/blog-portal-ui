@@ -57,6 +57,7 @@ const Home: React.FC = () => {
             type="date"
             value={searchDate}
             onChange={(e) => setSearchDate(e.target.value)}
+            placeholder="Tarih seçin"
           />
         </div>
         

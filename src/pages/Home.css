@@ -405,4 +405,30 @@
     height: 35px;
     font-size: 0.9rem;
   }
+}
+
+.filter-item input[type="date"]::-webkit-datetime-edit-text,
+.filter-item input[type="date"]::-webkit-datetime-edit-month-field,
+.filter-item input[type="date"]::-webkit-datetime-edit-day-field,
+.filter-item input[type="date"]::-webkit-datetime-edit-year-field {
+  color: transparent;
+}
+
+.filter-item input[type="date"]::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+.filter-item input[type="date"]:not(:valid):before {
+  content: attr(placeholder);
+  color: #95a5a6;
+  width: 100%;
 } 
